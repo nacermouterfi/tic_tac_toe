@@ -1,0 +1,105 @@
+.alert {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: min(100%, 60rem);
+	z-index: 1;
+	transform: translate(-50%, 0);
+	left: 50%;
+}
+
+#game-board {
+	width: 30rem;
+	height: 30rem;
+	display: grid;
+	place-items: center;
+}
+
+.board {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+}
+
+.square {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	place-items: center;
+	border: 1px solid black;
+	position: relative;
+}
+
+.square:not(.played) {
+	cursor: pointer;
+}
+
+.board .square {
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.board.player-1 .square:not(.played):hover {
+	background-image: url("../assets/x.svg");
+}
+
+.board.player-2 .square:not(.played):hover {
+	background-image: url("../assets/circle.svg");
+}
+
+.board .square:not(.played)::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.square.played.player-1 {
+	background-image: url("../assets/x.svg");
+}
+
+.square.played.player-2 {
+	background-image: url("../assets/circle.svg");
+}
+
+.square:nth-child(1) {
+	border-top: none;
+	border-left: none;
+}
+
+.square:nth-child(2) {
+	border-top: none;
+}
+
+.square:nth-child(3) {
+	border-top: none;
+	border-right: none;
+}
+
+.square:nth-child(4) {
+	border-left: none;
+}
+
+.square:nth-child(6) {
+	border-right: none;
+}
+
+.square:nth-child(7) {
+	border-bottom: none;
+	border-left: none;
+}
+
+.square:nth-child(8) {
+	border-bottom: none;
+}
+
+.square:nth-child(9) {
+	border-bottom: none;
+	border-right: none;
+}
